@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "pomodorosnack",
+    "slug": "snack-57ee267d-4034-49f9-ba46-9e8cd6cce907",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rodzenpiotr.pomodoroapp"
+    },
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "com.rodzenpiotr.pomodoroapp",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "20b3a803-bfff-40d3-a245-840652d10ab7"
+      }
+    }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-5978769123212080~8302136315"
+  }
+}
