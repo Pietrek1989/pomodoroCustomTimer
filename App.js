@@ -11,16 +11,16 @@ import Constants from "expo-constants";
 import { Focus } from "./src/features/Focus.js";
 import { Timer } from "./src/features/Timer";
 import WelcomeText from "./src/components/Welcome";
-// import {
-//   BannerAd,
-//   BannerAdSize,
-//   TestIds,
-// } from "react-native-google-mobile-ads";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// const adUnitId = __DEV__
-//   ? TestIds.BANNER
-//   : "ca-app-pub-5978769123212080~8302136315";
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-5978769123212080~8302136315";
 
 const STORAGE_KEY = "@focus_history";
 
@@ -139,13 +139,13 @@ export default function App() {
           }}
         />
       )}
-      {/* <BannerAd
+      <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,
         }}
-      /> */}
+      />
     </SafeAreaView>
   );
 }
