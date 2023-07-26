@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  Platform,
-  Vibration,
-  Modal,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { View, StyleSheet, Text, Vibration } from "react-native";
 import { Countdown } from "../components/Countdown";
 import { RoundedButton } from "../components/RoundedButton";
 import { scaleButton, scaleFont, spacing } from "../utils/sizes";

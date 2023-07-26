@@ -21,9 +21,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { scaleButton, scaleFont } from "./src/utils/sizes.js";
 import * as Font from "expo-font";
 
-// const adUnitId = __DEV__
-//   ? TestIds.BANNER
-//   : "ca-app-pub-5978769123212080~8302136315";
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-7787953777887576/7943510259";
 
 const STORAGE_KEY = "@focus_history";
 
@@ -161,13 +161,13 @@ export default function App() {
           }}
         />
       )}
-      {/* <BannerAd
+      <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,
         }}
-      /> */}
+      />
     </SafeAreaView>
   );
 }

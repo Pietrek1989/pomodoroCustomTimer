@@ -1,20 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { scaleFont } from "../utils/sizes";
-
-const { width } = Dimensions.get("window");
-const imageSize = width * 0.5;
 
 const WelcomeText = () => {
   return (
     <View style={styles.welcomeContainer}>
-      <Image
-        source={{
-          uri: "https://res.cloudinary.com/dvagn6szo/image/upload/v1688751395/Layer_2_ydux1g.png",
-        }}
-        style={{ width: imageSize, height: imageSize, padding: 0, margin: 0 }}
-        resizeMode="contain"
-      />
       <View style={styles.headerText}>
         <Text style={styles.headerParagraph}>
           Choose classic pomodoro{" "}
@@ -32,8 +22,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 10,
-    flex: 0.4,
-    marginBottom: 250,
+    flex: 0.3,
   },
   welcomeText: {
     fontSize: scaleFont(36),

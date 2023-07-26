@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "pomodorosnack",
+    "name": "Pomodoro - custom timer",
     "slug": "snack-57ee267d-4034-49f9-ba46-9e8cd6cce907",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "https://res.cloudinary.com/dvagn6szo/image/upload/v1690394915/logo_3_wveocp.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -23,12 +23,12 @@
       "googleServicesFile": "./google-services.json",
       "package": "com.rodzenpiotr.pomodoroapp",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logo.png"
     },
     "extra": {
       "eas": {
@@ -37,6 +37,6 @@
     }
   },
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-5978769123212080~8302136315"
+    "android_app_id": "ca-app-pub-7787953777887576~5867500503"
   }
 }
