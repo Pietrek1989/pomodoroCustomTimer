@@ -19,8 +19,6 @@ import {
 } from "react-native-google-mobile-ads";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { scaleButton, scaleFont } from "./src/utils/sizes.js";
-import { globalStyles } from "./src/utils/font.js";
-import { AppLoading } from "expo-app-loading";
 import * as Font from "expo-font";
 
 // const adUnitId = __DEV__
