@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TextInput as RNTextInput } from "react-native-paper";
 import { RoundedButton } from "../components/RoundedButton.js";
-import { spacing } from "../utils/sizes";
+import { scaleButton, spacing, scaleFont } from "../utils/sizes";
 import { FontAwesome } from "@expo/vector-icons";
 import { FocusHistory } from "./FocusHistory.js";
 
-const TextInput = ({ onChangeText, ...props }) => {
+const TextInput = ({ onChangeText, numberInput, ...props }) => {
   return (
     <RNTextInput
       style={styles.textInput}
-      onChangeText={(text) => onChangeText(parseFloat(text))}
+      onChangeText={(text) =>
+        numberInput ? onChangeText(parseFloat(text)) : onChangeText(text)
+      }
       theme={{
         colors: {
           primary: "red",
@@ -52,32 +54,44 @@ export const Focus = ({
       <View style={styles.inputContainer}>
         <TextInput onChangeText={setSubject} label="Name of the task" />
         <TextInput
+          numberInput
           onChangeText={setFocusTime}
           label="Focus Time (minutes)"
           keyboardType="number-pad"
         />
         <TextInput
+          numberInput
           onChangeText={setRestTime}
           label="Short Break Time (minutes)"
           keyboardType="number-pad"
         />
         <TextInput
+          numberInput
           onChangeText={setBigBreakTime}
           label="Big Break Time (minutes)"
           keyboardType="number-pad"
         />
+
         <View style={styles.button}>
-          <RoundedButton title="GO !" size={150} onPress={handleSubmit} />
+          <RoundedButton
+            title="GO !"
+            size={scaleButton(150)}
+            onPress={handleSubmit}
+          />
         </View>
         <View style={styles.backButton}>
           <FontAwesome
             name="arrow-left"
-            size={30}
+            size={scaleButton(30)}
             color="red"
             onPress={handleGoBack}
           />
           <Text
-            style={{ color: "red", fontWeight: "bold", fontSize: 20 }}
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              fontSize: scaleFont(20),
+            }}
             onPress={handleGoBack}
           >
             BACK
@@ -104,6 +118,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     margin: spacing.sm,
+    fontSize: scaleFont(18),
   },
   button: {
     justifyContent: "center",

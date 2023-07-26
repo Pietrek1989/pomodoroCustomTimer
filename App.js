@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   ImageBackground,
   Text,
+  Alert,
 } from "react-native";
 import { Button } from "react-native-paper";
 import Constants from "expo-constants";
@@ -17,10 +18,14 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { scaleButton, scaleFont } from "./src/utils/sizes.js";
+import { globalStyles } from "./src/utils/font.js";
+import { AppLoading } from "expo-app-loading";
+import * as Font from "expo-font";
 
-const adUnitId = __DEV__
-  ? TestIds.BANNER
-  : "ca-app-pub-5978769123212080~8302136315";
+// const adUnitId = __DEV__
+//   ? TestIds.BANNER
+//   : "ca-app-pub-5978769123212080~8302136315";
 
 const STORAGE_KEY = "@focus_history";
 
@@ -28,6 +33,25 @@ export default function App() {
   const [currentSubject, setCurrentSubject] = useState();
   const [history, setHistory] = useState([]);
   const [onMainPage, setOnMainPage] = useState(true);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadFont() {
+      try {
+        await Font.loadAsync({
+          "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+        });
+        setFontsLoaded(true);
+      } catch (error) {
+        console.error("Error loading font", error);
+      }
+    }
+
+    loadFont();
+  }, []);
+  const textStyle = fontsLoaded
+    ? { fontFamily: "Roboto-Regular" }
+    : { fontFamily: "System" };
 
   const storeFocusHistory = useCallback(async (focusHistory) => {
     try {
@@ -84,7 +108,7 @@ export default function App() {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, textStyle]}>
       {onMainPage ? (
         <ImageBackground
           source={{
@@ -139,13 +163,13 @@ export default function App() {
           }}
         />
       )}
-      <BannerAd
+      {/* <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,
         }}
-      />
+      /> */}
     </SafeAreaView>
   );
 }
@@ -165,12 +189,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   optionButtons: {
-    margin: 20,
-    width: 250,
-    height: 50,
+    margin: scaleButton(20),
+    width: scaleButton(250),
+    height: scaleButton(50),
     justifyContent: "center",
   },
   buttonText: {
     color: "black",
+    fontSize: scaleFont(16),
   },
 });

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { colors } from "../utils/colors";
-import { fontSizes, spacing } from "../utils/sizes";
+import { scaleFont, spacing } from "../utils/sizes";
 import { Badge } from "react-native-paper";
 
 export const FocusHistory = ({ history, onHistoryItemPress }) => {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 
   title: {
     color: colors.black,
-    fontSize: fontSizes.md,
+    fontSize: scaleFont(16),
     fontWeight: "bold",
   },
   list: {
@@ -87,5 +87,6 @@ const styles = StyleSheet.create({
   },
   taskName: {
     fontWeight: "bold",
+    fontSize: scaleFont(15),
   },
 });

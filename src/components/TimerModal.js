@@ -6,7 +6,12 @@ import {
   TouchableOpacity,
   StyleSheet,
   ImageBackground,
+  Dimensions,
 } from "react-native";
+import { scaleFont } from "../utils/sizes";
+
+const screenWidth = Dimensions.get("window").width;
+const width = screenWidth > 500 ? "50%" : "100%";
 
 export const TimerModal = ({
   visible,
@@ -65,19 +70,19 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: 15,
+    fontSize: scaleFont(15),
   },
   modalText: {
     marginBottom: 15,
     textAlign: "center",
     paddingHorizontal: 5,
     color: "white",
-    fontSize: 22,
+    fontSize: scaleFont(22),
     backgroundColor: "rgba(46, 30, 30, 0.22)",
   },
   currentStage: {
     fontWeight: "bold",
-    fontSize: 23,
+    fontSize: scaleFont(23),
     color: "limegreen",
   },
   backgroundImage: {
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
   modalView: {
     borderRadius: 200,
     alignItems: "center",
-    width: "100%",
+    width: width,
     height: "50%",
     elevation: 30,
   },

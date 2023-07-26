@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Countdown } from "../components/Countdown";
 import { RoundedButton } from "../components/RoundedButton";
-import { spacing } from "../utils/sizes";
+import { scaleButton, scaleFont, spacing } from "../utils/sizes";
 import { colors } from "../utils/colors";
 import { ProgressBar } from "react-native-paper";
 import { Timing } from "./Timing";
@@ -137,13 +137,13 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
         {!isStarted ? (
           <RoundedButton
             title="start"
-            size={150}
+            size={scaleButton(150)}
             onPress={() => setIsStarted(true)}
           />
         ) : (
           <RoundedButton
             title="pause"
-            size={150}
+            size={scaleButton(150)}
             onPress={() => setIsStarted(false)}
           />
         )}
@@ -156,7 +156,7 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
           onPress={clearSubject}
         />
         <Text
-          style={{ color: "red", fontWeight: "bold", fontSize: 20 }}
+          style={{ color: "red", fontWeight: "bold", fontSize: scaleFont(20) }}
           onPress={clearSubject}
         >
           {" "}
@@ -205,22 +205,18 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontWeight: "bold",
     textAlign: "center",
+    fontSize: scaleFont(14),
   },
   task: {
     color: colors.black,
     textAlign: "center",
+    fontSize: scaleFont(16),
   },
   stageText: {
-    fontSize: 30,
+    fontSize: scaleFont(30),
     fontWeight: "bold",
     marginBottom: 10,
     color: "limegreen",
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
   },
 
   button: {
@@ -229,38 +225,5 @@ const styles = StyleSheet.create({
     elevation: 2,
     backgroundColor: "red",
     marginTop: 15,
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: 15,
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
-    paddingHorizontal: 5,
-    color: "white",
-    fontSize: 22,
-    backgroundColor: "rgba(46, 30, 30, 0.22)",
-  },
-  currentStage: {
-    fontWeight: "bold",
-    fontSize: 23,
-    color: "limegreen",
-  },
-  backgroundImage: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 20,
-    overflow: "hidden",
-  },
-  modalView: {
-    borderRadius: 200,
-    alignItems: "center",
-    width: "100%",
-    height: "50%",
-    elevation: 30,
   },
 });
