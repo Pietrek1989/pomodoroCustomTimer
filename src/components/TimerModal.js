@@ -39,10 +39,18 @@ export const TimerModal = ({
             Your <Text style={styles.currentStage}>{getCurrentStage()}</Text>{" "}
             has finished.
           </Text>
-          <TouchableOpacity style={styles.button} onPress={onContinue}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={onContinue}
+            accessibilityLabel="continue to the next stage"
+          >
             <Text style={styles.textStyle}>Continue</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={onExtend}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={onExtend}
+            accessibilityLabel="add 5 minutes and resume the current stage"
+          >
             <Text style={styles.textStyle}>Add 5 more minutes</Text>
           </TouchableOpacity>
         </ImageBackground>

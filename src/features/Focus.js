@@ -20,6 +20,7 @@ const TextInput = ({ onChangeText, numberInput, ...props }) => {
           placeholder: "gray",
         },
       }}
+      accessibilityLabel={`Enter ${props.label.toLowerCase()}`}
       {...props}
     />
   );
@@ -72,14 +73,17 @@ export const Focus = ({
           keyboardType="number-pad"
         />
 
-        <View style={styles.button}>
+        <View style={styles.button} accessibilityLabel="Start the timer">
           <RoundedButton
             title="GO !"
             size={scaleButton(150)}
             onPress={handleSubmit}
           />
         </View>
-        <View style={styles.backButton}>
+        <View
+          style={styles.backButton}
+          accessibilityLabel="Go back to the main page"
+        >
           <FontAwesome
             name="arrow-left"
             size={scaleButton(30)}

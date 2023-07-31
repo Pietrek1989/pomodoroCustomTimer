@@ -128,6 +128,7 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
         {!isStarted ? (
           <RoundedButton
             title="start"
+            accessibilityLabel="start the timer"
             size={scaleButton(150)}
             onPress={() => setIsStarted(true)}
           />
@@ -135,11 +136,15 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
           <RoundedButton
             title="pause"
             size={scaleButton(150)}
+            accessibilityLabel="stop the timer"
             onPress={() => setIsStarted(false)}
           />
         )}
       </View>
-      <View style={styles.backButton}>
+      <View
+        style={styles.backButton}
+        accessibilityLabel="go back to the main page"
+      >
         <FontAwesome
           name="arrow-left"
           size={30}

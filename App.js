@@ -21,9 +21,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { scaleButton, scaleFont } from "./src/utils/sizes.js";
 import * as Font from "expo-font";
 
-const adUnitId = __DEV__
-  ? TestIds.BANNER
-  : "ca-app-pub-7787953777887576/7943510259";
+// const adUnitId = __DEV__
+//   ? TestIds.BANNER
+//   : "ca-app-pub-7787953777887576/7943510259";
 
 const STORAGE_KEY = "@focus_history";
 
@@ -112,28 +112,44 @@ export default function App() {
           source={{
             uri: "https://cdn.pixabay.com/photo/2017/05/19/09/37/healthy-2325957_1280.jpg",
           }}
-          style={styles.backgroundImage}
+          style={[styles.backgroundImage, { backgroundColor: "#FFF2CD" }]}
           resizeMode="cover"
         >
           <View style={styles.mainPage}>
-            <WelcomeText />
+            {/* <WelcomeText /> */}
 
-            <View style={styles.optionButtons}>
+            <View
+              style={styles.optionButtons}
+              accessibilityLabel="start the timer with classic pomodoro times"
+            >
               <Button
                 mode="contained"
                 onPress={handleStandardPomodoroPress}
                 color="black"
-                style={{ backgroundColor: "white" }}
+                style={{
+                  flex: 1,
+                  backgroundColor: "white",
+                  justifyContent: "center",
+                }}
               >
-                <Text style={styles.buttonText}>Classic Pomodoro </Text>
+                <Text style={styles.buttonText}>
+                  Classic Pomodoro (25m-5m-30m){" "}
+                </Text>
               </Button>
             </View>
-            <View style={styles.optionButtons}>
+            <View
+              style={styles.optionButtons}
+              accessibilityLabel="create your own custom timer"
+            >
               <Button
                 mode="contained"
                 onPress={handleCustomTimerPress}
                 color="black"
-                style={{ backgroundColor: "white" }}
+                style={{
+                  flex: 1,
+                  backgroundColor: "white",
+                  justifyContent: "center",
+                }}
               >
                 <Text style={styles.buttonText}>Custom Timer</Text>
               </Button>
@@ -161,13 +177,13 @@ export default function App() {
           }}
         />
       )}
-      <BannerAd
+      {/* <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,
         }}
-      />
+      /> */}
     </SafeAreaView>
   );
 }
@@ -187,13 +203,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   optionButtons: {
-    margin: scaleButton(20),
-    width: scaleButton(250),
-    height: scaleButton(50),
+    margin: scaleButton(40),
+    width: scaleButton(370),
+    height: scaleButton(60),
     justifyContent: "center",
+    borderColor: "gray",
+    borderWidth: 1,
+    borderRadius: 20,
   },
   buttonText: {
     color: "black",
-    fontSize: scaleFont(16),
+    fontSize: scaleFont(20),
   },
 });
