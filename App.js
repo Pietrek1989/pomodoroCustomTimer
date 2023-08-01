@@ -11,7 +11,6 @@ import { Button } from "react-native-paper";
 import Constants from "expo-constants";
 import { Focus } from "./src/features/Focus.js";
 import { Timer } from "./src/features/Timer";
-import WelcomeText from "./src/components/Welcome";
 import {
   BannerAd,
   BannerAdSize,
@@ -21,9 +20,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { scaleButton, scaleFont } from "./src/utils/sizes.js";
 import * as Font from "expo-font";
 
-// const adUnitId = __DEV__
-//   ? TestIds.BANNER
-//   : "ca-app-pub-7787953777887576/7943510259";
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-7787953777887576/7943510259";
 
 const STORAGE_KEY = "@focus_history";
 
@@ -118,14 +117,12 @@ export default function App() {
           <View style={styles.mainPage}>
             {/* <WelcomeText /> */}
 
-            <View
-              style={styles.optionButtons}
-              accessibilityLabel="start the timer with classic pomodoro times"
-            >
+            <View style={styles.optionButtons}>
               <Button
                 mode="contained"
                 onPress={handleStandardPomodoroPress}
                 color="black"
+                accessibilityLabel="start the timer with classic pomodoro times"
                 style={{
                   flex: 1,
                   backgroundColor: "white",
@@ -137,13 +134,11 @@ export default function App() {
                 </Text>
               </Button>
             </View>
-            <View
-              style={styles.optionButtons}
-              accessibilityLabel="create your own custom timer"
-            >
+            <View style={styles.optionButtons}>
               <Button
                 mode="contained"
                 onPress={handleCustomTimerPress}
+                accessibilityLabel="create your own custom timer"
                 color="black"
                 style={{
                   flex: 1,
@@ -177,13 +172,13 @@ export default function App() {
           }}
         />
       )}
-      {/* <BannerAd
+      <BannerAd
         unitId={adUnitId}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,
         }}
-      /> */}
+      />
     </SafeAreaView>
   );
 }

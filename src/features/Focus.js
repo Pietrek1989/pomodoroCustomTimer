@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { TextInput as RNTextInput } from "react-native-paper";
 import { RoundedButton } from "../components/RoundedButton.js";
 import { scaleButton, spacing, scaleFont } from "../utils/sizes";
@@ -20,7 +20,7 @@ const TextInput = ({ onChangeText, numberInput, ...props }) => {
           placeholder: "gray",
         },
       }}
-      accessibilityLabel={`Enter ${props.label.toLowerCase()}`}
+      placeholder={`Enter ${props.label.toLowerCase()}`}
       {...props}
     />
   );
@@ -56,51 +56,66 @@ export const Focus = ({
         <TextInput onChangeText={setSubject} label="Name of the task" />
         <TextInput
           numberInput
-          onChangeText={setFocusTime}
+          onChangeText={(text) => {
+            if (parseFloat(text) === 0) {
+              Alert.alert("Invalid Input", "The value cannot be 0.");
+              return;
+            }
+            setFocusTime(parseFloat(text));
+          }}
           label="Focus Time (minutes)"
           keyboardType="number-pad"
         />
         <TextInput
           numberInput
-          onChangeText={setRestTime}
+          onChangeText={(text) => {
+            if (parseFloat(text) === 0) {
+              Alert.alert("Invalid Input", "The value cannot be 0.");
+              return;
+            }
+            setRestTime(parseFloat(text));
+          }}
           label="Short Break Time (minutes)"
           keyboardType="number-pad"
         />
         <TextInput
           numberInput
-          onChangeText={setBigBreakTime}
+          onChangeText={(text) => {
+            if (parseFloat(text) === 0) {
+              Alert.alert("Invalid Input", "The value cannot be 0.");
+              return;
+            }
+            setBigBreakTime(parseFloat(text));
+          }}
           label="Big Break Time (minutes)"
           keyboardType="number-pad"
         />
 
-        <View style={styles.button} accessibilityLabel="Start the timer">
+        <View style={styles.button}>
           <RoundedButton
             title="GO !"
             size={scaleButton(150)}
             onPress={handleSubmit}
+            accessibilityLabel="Start the timer"
           />
         </View>
-        <View
+        <TouchableOpacity
           style={styles.backButton}
+          onPress={handleGoBack}
           accessibilityLabel="Go back to the main page"
         >
-          <FontAwesome
-            name="arrow-left"
-            size={scaleButton(30)}
-            color="red"
-            onPress={handleGoBack}
-          />
+          <FontAwesome name="arrow-left" size={scaleButton(30)} color="red" />
           <Text
             style={{
               color: "red",
               fontWeight: "bold",
               fontSize: scaleFont(20),
             }}
-            onPress={handleGoBack}
           >
             BACK
           </Text>
-        </View>
+        </TouchableOpacity>
+
         <FocusHistory
           history={history}
           onHistoryItemPress={onHistoryItemPress}

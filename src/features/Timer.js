@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Vibration } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Vibration,
+  TouchableOpacity,
+} from "react-native";
 import { Countdown } from "../components/Countdown";
 import { RoundedButton } from "../components/RoundedButton";
 import { scaleButton, scaleFont, spacing } from "../utils/sizes";
@@ -141,7 +147,7 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
           />
         )}
       </View>
-      <View
+      <TouchableOpacity
         style={styles.backButton}
         accessibilityLabel="go back to the main page"
       >
@@ -158,7 +164,7 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
           {" "}
           BACK{" "}
         </Text>
-      </View>
+      </TouchableOpacity>
       <TimerModal
         visible={showModal}
         onClose={setShowModal}

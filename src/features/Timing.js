@@ -6,18 +6,21 @@ import { scaleButton } from "../utils/sizes";
 export const Timing = ({ onChangeTime, onSkip }) => {
   return (
     <>
-      <View style={styles.timingButton} accessibilityLabel="add 5 minutes">
+      <View style={styles.timingButton}>
         <RoundedButton
           size={scaleButton(75)}
+          accessibilityLabel="add 5 minutes"
           title="+ 5"
           onPress={() => onChangeTime(5)}
         />
       </View>
-      <View
-        style={styles.timingButton}
-        accessibilityLabel="skip to the next stage"
-      >
-        <RoundedButton size={scaleButton(75)} title="Skip" onPress={onSkip} />
+      <View style={styles.timingButton}>
+        <RoundedButton
+          size={scaleButton(75)}
+          title="Skip"
+          onPress={onSkip}
+          accessibilityLabel="skip to the next stage"
+        />
       </View>
     </>
   );

@@ -2,7 +2,7 @@
   "expo": {
     "name": "Pomodoro - custom timer",
     "slug": "snack-57ee267d-4034-49f9-ba46-9e8cd6cce907",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
@@ -20,6 +20,7 @@
       "bundleIdentifier": "com.rodzenpiotr.pomodoroapp"
     },
     "android": {
+      "versionCode": 3,
       "googleServicesFile": "./google-services.json",
       "package": "com.rodzenpiotr.pomodoroapp",
       "adaptiveIcon": {
